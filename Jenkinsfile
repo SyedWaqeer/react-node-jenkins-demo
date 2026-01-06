@@ -10,7 +10,8 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'main',
-                url: 'https://gitlab.com/your-username/react-node-jenkins-demo.git'
+                url: 'https://github.com/SyedWaqeer/react-node-jenkins-demo.git',
+                credentialsId: 'github-token'
             }
         }
 
@@ -49,7 +50,7 @@ pipeline {
 
     post {
         success {
-            echo '✅ CI Pipeline Successful'
+            echo '✅ GitHub CI Pipeline Successful'
         }
         failure {
             echo '❌ Pipeline Failed'
